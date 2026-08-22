@@ -188,31 +188,37 @@ def download_cv():
 
 
 @app.get(f"/{SITE_SLUG}")
+@app.get("/home")
 def home_page():
     return render_template("home.html")
 
 
 @app.get(f"/{SITE_SLUG}/about")
+@app.get("/about")
 def about_page():
     return render_template("about.html")
 
 
 @app.get(f"/{SITE_SLUG}/services")
+@app.get("/services")
 def services_page():
     return render_template("services.html")
 
 
 @app.get(f"/{SITE_SLUG}/projects")
+@app.get("/projects")
 def projects_page():
     return render_template("projects.html")
 
 
 @app.get(f"/{SITE_SLUG}/contact")
+@app.get("/contact")
 def contact_page():
     return render_template("contact.html")
 
 
 @app.post(f"/{SITE_SLUG}/contact")
+@app.post("/contact")
 def contact_submit():
     name = request.form.get("name", "").strip()
     email = request.form.get("email", "").strip()
