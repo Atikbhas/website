@@ -66,6 +66,7 @@ def send_email_notification(name: str, email: str, message: str, service: str = 
     use_tls = os.getenv("MAIL_USE_TLS", "true").lower() == "true"
 
     if not (mail_server and mail_username and mail_password and receiver):
+        print("Mail config missing, skipping email notification.")
         return
 
     msg = EmailMessage()
@@ -93,11 +94,26 @@ You can reply directly to this email to contact {name} at {email}.
 """
     msg.set_content(details)
 
-    with smtplib.SMTP(mail_server, mail_port, timeout=20) as server:
-        if use_tls:
-            server.starttls()
-        server.login(mail_username, mail_password)
-        server.send_message(msg)
+    try:
+        if mail_port == 465 or not use_tls:
+            with smtplib.SMTP_SSL(mail_server, 465, timeout=10) as server:
+                server.login(mail_username, mail_password)
+                server.send_message(msg)
+        else:
+            with smtplib.SMTP(mail_server, mail_port, timeout=10) as server:
+                server.starttls()
+                server.login(mail_username, mail_password)
+                server.send_message(msg)
+        print(f"Email notification successfully sent to {receiver}")
+    except Exception as e:
+        print(f"Port {mail_port} failed ({e}), attempting SSL fallback on port 465...")
+        try:
+            with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as server:
+                server.login(mail_username, mail_password)
+                server.send_message(msg)
+            print(f"Email notification successfully sent via SSL fallback to {receiver}")
+        except Exception as err:
+            print(f"Email notification delivery error: {err}")
 
 
 init_db()
@@ -204,11 +220,14 @@ def contact_submit():
         return redirect(url_for("contact_page"))
 
     save_message(name, email, message, service, budget)
-    try:
-        send_email_notification(name, email, message, service, budget)
-    except Exception:
-        flash("Your project request has been saved! (Email notification queued)", "warning")
-        return redirect(url_for("contact_page"))
+
+    # Send email asynchronously in background thread so form submission is instant (< 0.1s)
+    import threading
+    threading.Thread(
+        target=send_email_notification,
+        args=(name, email, message, service, budget),
+        daemon=True
+    ).start()
 
     flash("Thank you! Your project inquiry has been received. I will review it and reply within 24 hours.", "success")
     return redirect(url_for("contact_page"))
