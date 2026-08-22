@@ -59,11 +59,10 @@ def save_message(name: str, email: str, message: str, service: str = "", budget:
 
 def send_email_notification(name: str, email: str, message: str, service: str = "", budget: str = "") -> None:
     mail_server = os.getenv("MAIL_SERVER", "smtp.gmail.com")
-    mail_port = int(os.getenv("MAIL_PORT", "587"))
-    mail_username = os.getenv("MAIL_USERNAME")
-    mail_password = os.getenv("MAIL_PASSWORD")
+    mail_port = int(os.getenv("MAIL_PORT", "465"))
+    mail_username = os.getenv("MAIL_USERNAME", "atikbhas92@gmail.com")
+    mail_password = os.getenv("MAIL_PASSWORD", "mnuq ywux bpgv irde")
     receiver = os.getenv("CONTACT_RECEIVER", CONTACT_EMAIL)
-    use_tls = os.getenv("MAIL_USE_TLS", "true").lower() == "true"
 
     if not (mail_server and mail_username and mail_password and receiver):
         print("Mail config missing, skipping email notification.")
@@ -95,23 +94,18 @@ You can reply directly to this email to contact {name} at {email}.
     msg.set_content(details)
 
     try:
-        if mail_port == 465 or not use_tls:
-            with smtplib.SMTP_SSL(mail_server, 465, timeout=10) as server:
-                server.login(mail_username, mail_password)
-                server.send_message(msg)
-        else:
-            with smtplib.SMTP(mail_server, mail_port, timeout=10) as server:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=12) as server:
+            server.login(mail_username, mail_password)
+            server.send_message(msg)
+        print(f"Email notification successfully sent to {receiver}")
+    except Exception as e:
+        print(f"SSL port 465 failed ({e}), attempting TLS port 587 fallback...")
+        try:
+            with smtplib.SMTP("smtp.gmail.com", 587, timeout=12) as server:
                 server.starttls()
                 server.login(mail_username, mail_password)
                 server.send_message(msg)
-        print(f"Email notification successfully sent to {receiver}")
-    except Exception as e:
-        print(f"Port {mail_port} failed ({e}), attempting SSL fallback on port 465...")
-        try:
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=10) as server:
-                server.login(mail_username, mail_password)
-                server.send_message(msg)
-            print(f"Email notification successfully sent via SSL fallback to {receiver}")
+            print(f"Email notification successfully sent via TLS fallback to {receiver}")
         except Exception as err:
             print(f"Email notification delivery error: {err}")
 
