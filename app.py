@@ -101,9 +101,38 @@ def send_email_notification(name: str, email: str, message: str, service: str = 
                     print(f"Resend HTTP API email successfully delivered to {receiver}")
                     return
         except Exception as resend_err:
-            print(f"Resend HTTP API error ({resend_err}), falling back to SMTP...")
+            print(f"Resend HTTP API error ({resend_err}), falling back to FormSubmit...")
 
-    # 2. SMTP Fallback
+    # 2. Try FormSubmit HTTPS API (Port 443 HTTPS - Never blocked by Render cloud free tier)
+    try:
+        import json
+        import urllib.request
+        fs_url = f"https://formsubmit.co/ajax/{receiver}"
+        fs_payload = {
+            "name": name,
+            "email": email,
+            "_subject": f"⚡ New Client Inquiry: {name} ({service if service else 'General Project'})",
+            "service": service if service else "Not Specified",
+            "budget": budget if budget else "Not Specified",
+            "message": message
+        }
+        fs_headers = {
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Referer": f"{SITE_URL}/contact",
+            "Origin": SITE_URL
+        }
+        fs_req = urllib.request.Request(fs_url, data=json.dumps(fs_payload).encode('utf-8'), headers=fs_headers)
+        with urllib.request.urlopen(fs_req, timeout=10) as fs_resp:
+            fs_body = fs_resp.read().decode('utf-8')
+            print(f"FormSubmit API response: {fs_body}")
+            if '"success":"true"' in fs_body:
+                print(f"FormSubmit HTTPS API email successfully delivered to {receiver}")
+                return
+    except Exception as fs_err:
+        print(f"FormSubmit HTTPS API error ({fs_err}), falling back to SMTP...")
+
+    # 3. SMTP Fallback
     mail_server = os.getenv("MAIL_SERVER", "smtp.gmail.com")
     mail_port = int(os.getenv("MAIL_PORT", "465"))
     mail_username = os.getenv("MAIL_USERNAME", "atikbhas92@gmail.com")
