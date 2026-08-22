@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zenith Developing - Professional Full-Stack Web Developer. Specializing in Python, Flask, modern JavaScript, custom web apps, and scalable web solutions.">
+    <meta name="keywords" content="Freelance Developer, Full Stack Developer, Python Developer, Flask Developer, Web Development, API Integration, Modern UI/UX">
+    <meta name="author" content="Zenith Developing">
+    
+    <!-- Open Graph / Social Previews -->
+    <meta property="og:title" content="{{ site_title }}">
+    <meta property="og:description" content="Crafting modern, high-performance web applications and sleek digital experiences.">
+    <meta property="og:type" content="website">
+    
+    <title>{{ site_title }}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32.png') }}?v=2">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon-32.png') }}?v=2">
+    <!-- Inline theme initializer to prevent flicker -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('zd_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body class="theme-ready">
+    <!-- Background Glow Elements -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Header Navigation -->
+    <header class="topbar" id="navbar">
+        <div class="wrapper nav-container">
+            <a class="brand" href="{{ url_for('home_page') }}" aria-label="Zenith Developing Home">
+                <div class="brand-logo-wrap">
+                    <span class="brand-logo-text">ZD</span>
+                    <span class="brand-pulse"></span>
+                </div>
+                <div class="brand-info">
+                    <span class="brand-name">Zenith Developing</span>
+                    <span class="brand-tagline">Full Stack Solutions</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="nav-menu" id="desktopNav">
+                <a href="{{ url_for('home_page') }}" class="nav-link {% if request.path == url_for('home_page') %}active{% endif %}">
+                    <i class="fa-solid fa-house"></i> <span>Home</span>
+                </a>
+                <a href="{{ url_for('services_page') }}" class="nav-link {% if request.path == url_for('services_page') %}active{% endif %}">
+                    <i class="fa-solid fa-layer-group"></i> <span>Services</span>
+                </a>
+                <a href="{{ url_for('projects_page') }}" class="nav-link {% if request.path == url_for('projects_page') %}active{% endif %}">
+                    <i class="fa-solid fa-laptop-code"></i> <span>Projects</span>
+                </a>
+                <a href="{{ url_for('about_page') }}" class="nav-link {% if request.path == url_for('about_page') %}active{% endif %}">
+                    <i class="fa-solid fa-user-astronaut"></i> <span>About</span>
+                </a>
+                <a href="{{ url_for('contact_page') }}" class="nav-link {% if request.path == url_for('contact_page') %}active{% endif %}">
+                    <i class="fa-solid fa-paper-plane"></i> <span>Contact</span>
+                </a>
+            </nav>
+
+            <!-- Nav Actions -->
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Light or Dark Mode" title="Toggle Light/Dark Theme">
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                </button>
+
+                <a class="btn-nav-icon email-nav-btn" href="mailto:{{ contact_email }}" title="Direct Email: {{ contact_email }}" aria-label="Direct Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a class="btn-nav-icon whatsapp-nav-btn" href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp: {{ contact_phone }}" aria-label="WhatsApp Chat">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a class="btn-linkedin-icon" href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn" aria-label="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a class="btn-cta" href="{{ url_for('contact_page') }}">
+                    <span>Start a Project</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-drawer-header">
+            <div class="brand">
+                <div class="brand-logo-wrap">
+                    <span class="brand-logo-text">ZD</span>
+                </div>
+                <span class="brand-name">Zenith Developing</span>
+            </div>
+            <button class="mobile-close" id="mobileCloseBtn" aria-label="Close Navigation Menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="mobile-drawer-body">
+            <!-- Mobile Theme Switcher Bar -->
+            <div class="mobile-theme-row">
+                <span class="mobile-theme-title"><i class="fa-solid fa-circle-half-stroke"></i> Color Theme</span>
+                <button class="theme-toggle-btn mobile-theme-btn" id="mobileThemeToggleBtn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <span class="theme-mode-text">Dark Mode</span>
+                </button>
+            </div>
+
+            <a href="{{ url_for('home_page') }}" class="mobile-link {% if request.path == url_for('home_page') %}active{% endif %}">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+            <a href="{{ url_for('services_page') }}" class="mobile-link {% if request.path == url_for('services_page') %}active{% endif %}">
+                <i class="fa-solid fa-layer-group"></i> Services
+            </a>
+            <a href="{{ url_for('projects_page') }}" class="mobile-link {% if request.path == url_for('projects_page') %}active{% endif %}">
+                <i class="fa-solid fa-laptop-code"></i> Projects &amp; Work
+            </a>
+            <a href="{{ url_for('about_page') }}" class="mobile-link {% if request.path == url_for('about_page') %}active{% endif %}">
+                <i class="fa-solid fa-user-astronaut"></i> About Me
+            </a>
+            <a href="{{ url_for('contact_page') }}" class="mobile-link {% if request.path == url_for('contact_page') %}active{% endif %}">
+                <i class="fa-solid fa-paper-plane"></i> Contact &amp; Hire
+            </a>
+            
+            <div class="mobile-drawer-footer">
+                <a href="{{ url_for('download_cv') }}" class="btn-glow w-full text-center" style="display:flex; align-items:center; justify-content:center; gap:8px;" download="Atik_Bhas_Resume.pdf">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span>Download CV (PDF)</span>
+                </a>
+                <a href="mailto:{{ contact_email }}" class="btn-outline w-full text-center" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fa-solid fa-envelope" style="color:#fb7185;"></i>
+                    <span>{{ contact_email }}</span>
+                </a>
+                <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn-outline w-full text-center" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+                    <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
+                <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" class="btn-linkedin w-full">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>Connect on LinkedIn</span>
+                </a>
+                <a href="{{ url_for('contact_page') }}" class="btn-cta w-full text-center">
+                    <span>Let's Build Something</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="wrapper">
+            <!-- Toast Notifications -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="alert-stack">
+                        {% for category, msg in messages %}
+                            <div class="alert alert-{{ category }}">
+                                <div class="alert-icon">
+                                    {% if category == 'success' %}
+                                        <i class="fa-solid fa-circle-check"></i>
+                                    {% elif category == 'error' %}
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                    {% else %}
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    {% endif %}
+                                </div>
+                                <div class="alert-text">{{ msg }}</div>
+                                <button class="alert-close" onclick="this.parentElement.remove()" aria-label="Dismiss alert">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrapper footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand">
+                        <div class="brand-logo-wrap">
+                            <span class="brand-logo-text">ZD</span>
+                        </div>
+                        <div>
+                            <div class="brand-name">Zenith Developing</div>
+                            <p class="brand-sub">Full Stack Web Engineering & UI/UX</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Empowering startups, entrepreneurs, and businesses with tailor-made web applications, robust backend architectures, and sleek digital experiences.
+                    </p>
+                    <div class="available-badge">
+                        <span class="pulse-dot"></span>
+                        <span>Available for new projects & freelance contracts</span>
+                    </div>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                            <li><a href="{{ url_for('services_page') }}">Services & Expertise</a></li>
+                            <li><a href="{{ url_for('projects_page') }}">Featured Projects</a></li>
+                            <li><a href="{{ url_for('about_page') }}">About Developer</a></li>
+                            <li><a href="{{ url_for('contact_page') }}">Get in Touch</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Core Capabilities</h4>
+                        <ul>
+                            <li><a href="{{ url_for('services_page') }}">AI Engineering &amp; AI/ML</a></li>
+                            <li><a href="{{ url_for('services_page') }}">Python &amp; Flask Web Apps</a></li>
+                            <li><a href="{{ url_for('services_page') }}">PHP Full-Stack &amp; MySQL</a></li>
+                            <li><a href="{{ url_for('services_page') }}">Modern Responsive UI/UX</a></li>
+                            <li><a href="{{ url_for('services_page') }}">REST APIs &amp; Integrations</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Connect & Inquire</h4>
+                        <p class="footer-small-text">Ready to bring your next web idea to life? Reach out anytime.</p>
+                        <div class="footer-socials">
+                            <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub Profile">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn Profile">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:{{ contact_email }}" class="social-icon" title="Email: {{ contact_email }}">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                            <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="social-icon" title="WhatsApp: {{ contact_phone }}">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                        <a href="{{ url_for('contact_page') }}" class="footer-quote-btn">
+                            <i class="fa-solid fa-bolt"></i> Request Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 <strong>Zenith Developing</strong>. All rights reserved. Crafted with precision & high standards.</p>
+                <div class="footer-bottom-links">
+                    <a href="{{ url_for('contact_page') }}">Hire Me</a>
+                    <span>•</span>
+                    <a href="mailto:{{ contact_email }}">Email: {{ contact_email }}</a>
+                    <span>•</span>
+                    <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <span>•</span>
+                    <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <span>•</span>
+                    <a href="{{ url_for('services_page') }}">Services</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

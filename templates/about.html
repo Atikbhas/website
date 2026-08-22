@@ -1,0 +1,724 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- About Page Header Hero -->
+<section class="page-head-card">
+    <div class="page-head-badge">
+        <span class="live-dot"></span>
+        <span>Available for Freelance &amp; Engineering Roles</span>
+    </div>
+    <h1 class="page-title">Engineering High-Performance Code, AI Solutions &amp; Modern Web Experiences</h1>
+    <p class="page-subtitle">
+        I am <strong>Atik Bhas</strong> — a Full Stack Software Developer &amp; Data Science enthusiast specializing in Python/Flask backends, modern interactive frontends, AI/ML pipelines, and optimized relational databases.
+    </p>
+    <div class="about-hero-actions">
+        <a class="btn-glow" href="{{ url_for('contact_page') }}">
+            <span>Hire Me for a Project</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a class="btn-outline btn-cv-about" href="{{ url_for('download_cv') }}" title="Download Atik Bhas CV / Resume (PDF)">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <span>Download CV</span>
+        </a>
+        <a class="btn-outline" href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn Profile</span>
+        </a>
+        <a class="btn-outline" href="{{ github_url }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub Repositories</span>
+        </a>
+    </div>
+</section>
+
+<!-- Developer Terminal & Bio Grid -->
+<section class="section-block">
+    <div class="grid-cards-2">
+        <!-- Interactive Python Terminal Card -->
+        <div class="glass-card dev-terminal-card">
+            <div class="dev-terminal-header">
+                <div class="code-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-tab">
+                    <i class="fa-brands fa-python" style="color:#38bdf8;"></i> developer_profile.py
+                </div>
+                <button class="copy-code-btn" id="copyProfileBtn" title="Copy code snippet">
+                    <i class="fa-regular fa-clone"></i>
+                    <span class="copy-text">Copy</span>
+                </button>
+            </div>
+            <pre class="dev-code-content" id="devProfileCode"><code><span class="code-keyword">class</span> <span class="code-class">SoftwareDeveloper</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self):
+        self.name = <span class="code-string">"Atik Bhas"</span>
+        self.brand = <span class="code-string">"Zenith Developing"</span>
+        self.qualification = <span class="code-string">"BCA (Computer Applications)"</span>
+        self.university = <span class="code-string">"Saurashtra University, Rajkot"</span>
+        self.primary_stack = [
+            <span class="code-string">"Python"</span>, <span class="code-string">"Flask"</span>, <span class="code-string">"PHP"</span>, <span class="code-string">"JavaScript"</span>,
+            <span class="code-string">"AI &amp; ML"</span>, <span class="code-string">"Pandas/NumPy"</span>, <span class="code-string">"MySQL/SQLite"</span>
+        ]
+        self.location = <span class="code-string">"Rajkot, Gujarat, India (Global Remote)"</span>
+        self.availability = <span class="code-string">"⚡ Ready for Projects &amp; Contracts"</span>
+
+    <span class="code-keyword">def</span> <span class="code-func">build_solution</span>(self, client_requirements):
+        <span class="code-comment"># Transforms raw requirements into production web software</span>
+        app = self.design_architecture(client_requirements)
+        app.integrate_ai_and_data_pipelines()
+        app.optimize_performance_and_security()
+        <span class="code-keyword">return</span> app.deploy_to_cloud()</code></pre>
+            
+            <div class="terminal-footer-pills">
+                <span class="pill-tag"><i class="fa-solid fa-code"></i> Clean Code</span>
+                <span class="pill-tag"><i class="fa-solid fa-bolt"></i> Fast Delivery</span>
+                <span class="pill-tag"><i class="fa-solid fa-shield-halved"></i> Secure APIs</span>
+            </div>
+        </div>
+
+        <!-- Bio & Client Value Proposition -->
+        <div class="glass-card bio-summary-card">
+            <div class="card-icon-wrap icon-blue">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h3>Why Work With Me?</h3>
+            <p>
+                Whether you need a full-scale web application, a modern redesign, custom database architecture, or AI/ML data processing pipelines, I bring end-to-end technical mastery with a laser focus on business value.
+            </p>
+            
+            <div class="about-points">
+                <div class="about-point-item">
+                    <div class="point-icon"><i class="fa-solid fa-circle-check text-cyan"></i></div>
+                    <div>
+                        <strong>Full-Cycle Engineering:</strong> Seamless transition from data analysis, AI models, and database schema to responsive, pixel-perfect frontend UI.
+                    </div>
+                </div>
+                <div class="about-point-item">
+                    <div class="point-icon"><i class="fa-solid fa-circle-check text-cyan"></i></div>
+                    <div>
+                        <strong>Modern &amp; Documented Code:</strong> Structured according to industry best practices, making future scalability and team maintenance effortless.
+                    </div>
+                </div>
+                <div class="about-point-item">
+                    <div class="point-icon"><i class="fa-solid fa-circle-check text-cyan"></i></div>
+                    <div>
+                        <strong>Direct &amp; Agile Communication:</strong> No middleman delays. Receive regular demo milestones, fast response times, and post-launch support.
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-stats-grid mt-20">
+                <div class="stat-box">
+                    <span class="stat-num">BCA</span>
+                    <span class="stat-label">Saurashtra Univ</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">10+</span>
+                    <span class="stat-label">Mastered Stacks</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-label">Quality Code</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-num">&lt; 24h</span>
+                    <span class="stat-label">Fast Response</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Educational Qualifications & Academic Milestones -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge"><i class="fa-solid fa-graduation-cap"></i> Academic Journey</span>
+        <h2 class="section-main-title">Educational Qualifications</h2>
+        <p class="section-desc">Solid academic foundation combining computer applications, programming, data science, and mathematical logic from institutions in Rajkot, Gujarat.</p>
+    </div>
+
+    <div class="timeline-container">
+        <!-- BCA Milestone -->
+        <div class="timeline-item">
+            <div class="timeline-marker">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                    <div>
+                        <span class="edu-type-badge">Undergraduate Degree</span>
+                        <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
+                        <p class="timeline-institution"><i class="fa-solid fa-building-columns"></i> Saurashtra University, Rajkot, Gujarat</p>
+                    </div>
+                    <span class="timeline-badge-active"><i class="fa-solid fa-circle-check"></i> Primary Degree</span>
+                </div>
+                <p class="timeline-desc">
+                    Comprehensive computer applications and software engineering curriculum at Saurashtra University. Coursework covering Data Structures &amp; Algorithms (DSA), Relational Database Management Systems (MySQL/SQLite), Python, PHP, Object-Oriented Programming, AI &amp; Machine Learning, and Web Architecture.
+                </p>
+                <div class="edu-tags">
+                    <span class="edu-tag">Saurashtra University</span>
+                    <span class="edu-tag">Rajkot, Gujarat</span>
+                    <span class="edu-tag">Python &amp; Flask</span>
+                    <span class="edu-tag">AI &amp; Data Science</span>
+                    <span class="edu-tag">MySQL &amp; SQLite</span>
+                    <span class="edu-tag">Software Engineering</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- HSC Milestone -->
+        <div class="timeline-item">
+            <div class="timeline-marker">
+                <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                    <div>
+                        <span class="edu-type-badge">Higher Secondary</span>
+                        <h3 class="timeline-title">Higher Secondary Certificate (HSC / 12th)</h3>
+                        <p class="timeline-institution"><i class="fa-solid fa-school"></i> Masum Vidhyalay, Rajkot, Gujarat</p>
+                    </div>
+                    <span class="timeline-badge-completed"><i class="fa-solid fa-check"></i> Completed</span>
+                </div>
+                <p class="timeline-desc">
+                    Completed Higher Secondary education at Masum Vidhyalay, Rajkot. Built a strong foundation in computer studies, mathematics, statistics, and analytical reasoning that shaped my journey into software development.
+                </p>
+                <div class="edu-tags">
+                    <span class="edu-tag">Masum Vidhyalay</span>
+                    <span class="edu-tag">Rajkot, Gujarat</span>
+                    <span class="edu-tag">Analytical Thinking</span>
+                    <span class="edu-tag">Computer Basics</span>
+                    <span class="edu-tag">Mathematics &amp; Statistics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SSC Milestone -->
+        <div class="timeline-item">
+            <div class="timeline-marker">
+                <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                    <div>
+                        <span class="edu-type-badge">Secondary Education</span>
+                        <h3 class="timeline-title">Secondary School Certificate (SSC / 10th)</h3>
+                        <p class="timeline-institution"><i class="fa-solid fa-school"></i> Bhartiya School, Rajkot, Gujarat</p>
+                    </div>
+                    <span class="timeline-badge-completed"><i class="fa-solid fa-check"></i> Completed</span>
+                </div>
+                <p class="timeline-desc">
+                    Completed secondary schooling at Bhartiya School, Rajkot with distinction, establishing a core foundation in science, mathematics, and logical reasoning.
+                </p>
+                <div class="edu-tags">
+                    <span class="edu-tag">Bhartiya School</span>
+                    <span class="edu-tag">Rajkot, Gujarat</span>
+                    <span class="edu-tag">Foundational Sciences</span>
+                    <span class="edu-tag">Problem Solving</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comprehensive Technical Arsenal & Skills Matrix -->
+<section class="section-block" id="skillsSection">
+    <div class="section-header text-center">
+        <span class="sub-badge"><i class="fa-solid fa-layer-group"></i> Technical Mastery</span>
+        <h2 class="section-main-title">Skills &amp; Technologies Matrix</h2>
+        <p class="section-desc">A categorized overview of programming languages, frameworks, AI/ML libraries, and development tools I master.</p>
+    </div>
+
+    <!-- Skill Filter Tabs -->
+    <div class="skills-filter-wrapper">
+        <button class="skill-tab-btn active" data-skill-category="all">
+            <i class="fa-solid fa-border-all"></i> All Technologies
+        </button>
+        <button class="skill-tab-btn" data-skill-category="languages">
+            <i class="fa-solid fa-code"></i> Core Languages &amp; Web
+        </button>
+        <button class="skill-tab-btn" data-skill-category="aiml">
+            <i class="fa-solid fa-brain"></i> AI, ML &amp; Data Science
+        </button>
+        <button class="skill-tab-btn" data-skill-category="frameworks">
+            <i class="fa-solid fa-cubes"></i> Frameworks &amp; Backend
+        </button>
+        <button class="skill-tab-btn" data-skill-category="databases">
+            <i class="fa-solid fa-database"></i> Databases &amp; SQL
+        </button>
+        <button class="skill-tab-btn" data-skill-category="tools">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Developer Tools &amp; IDEs
+        </button>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="skills-showcase-grid">
+
+        <!-- 1. Core Languages & Web -->
+        <div class="skill-detail-card glass-card" data-category="languages">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-cyan">
+                    <i class="fa-brands fa-python"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Python 3</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Core backend engineering, Object-Oriented Architecture, automation scripting, data processing algorithms, and API services.
+            </p>
+            <div class="skill-tags-row">
+                <span>OOP</span>
+                <span>Data Structures</span>
+                <span>Automation</span>
+                <span>Flask</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="languages">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-orange">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>HTML5</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Semantic structure, modern SEO markup, accessibility (a11y), responsive metadata, and clean DOM hierarchy.
+            </p>
+            <div class="skill-tags-row">
+                <span>Semantic HTML</span>
+                <span>SEO Optimized</span>
+                <span>Accessibility</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="languages">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-blue">
+                    <i class="fa-brands fa-css3-alt"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>CSS3 &amp; Glassmorphism</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Modern responsive layouts (Grid &amp; Flexbox), custom UI design systems, micro-animations, glassmorphic themes, and theme switching.
+            </p>
+            <div class="skill-tags-row">
+                <span>CSS Grid</span>
+                <span>Flexbox</span>
+                <span>Keyframes</span>
+                <span>Light/Dark Themes</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="languages">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-yellow">
+                    <i class="fa-brands fa-js"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>JavaScript (ES6+)</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Asynchronous programming (Promises, Async/Await), DOM manipulation, Fetch API, dynamic client-side filtering, and interactive state management.
+            </p>
+            <div class="skill-tags-row">
+                <span>ES6+</span>
+                <span>Async / Await</span>
+                <span>Fetch API</span>
+                <span>DOM</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="languages">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-purple">
+                    <i class="fa-brands fa-bootstrap"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Bootstrap 5</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Rapid responsive UI prototyping, custom utility components, modal systems, navbar architecture, and mobile-first design workflows.
+            </p>
+            <div class="skill-tags-row">
+                <span>Responsive Grid</span>
+                <span>Components</span>
+                <span>Utilities</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="languages">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-purple">
+                    <i class="fa-brands fa-php"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>PHP Full-Stack</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Full-stack web applications, MVC architecture, secure user authentication &amp; sessions, CRUD management, and MySQL database integration.
+            </p>
+            <div class="skill-tags-row">
+                <span>MVC Pattern</span>
+                <span>Session Security</span>
+                <span>CRUD APIs</span>
+            </div>
+        </div>
+
+        <!-- 2. AI, ML & Data Science -->
+        <div class="skill-detail-card glass-card" data-category="aiml">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-purple">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>AI &amp; Machine Learning (AI/ML)</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Supervised &amp; unsupervised algorithms, predictive modeling, data pipeline orchestration, classification, regression, and model integration into web apps.
+            </p>
+            <div class="skill-tags-row">
+                <span>Scikit-Learn</span>
+                <span>Predictive Models</span>
+                <span>Model Deployment</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="aiml">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-cyan">
+                    <i class="fa-solid fa-table"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Pandas</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                High-performance DataFrames, data cleaning, exploratory data analysis (EDA), data wrangling, missing-value imputation, and multi-indexed analytics.
+            </p>
+            <div class="skill-tags-row">
+                <span>DataFrames</span>
+                <span>Data Wrangling</span>
+                <span>EDA</span>
+                <span>Aggregations</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="aiml">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-blue">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>NumPy</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Multi-dimensional ndarray operations, vectorized computations, linear algebra calculations, mathematical transforms, and statistical analysis.
+            </p>
+            <div class="skill-tags-row">
+                <span>Vectorization</span>
+                <span>N-Dim Arrays</span>
+                <span>Linear Algebra</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="aiml">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-emerald">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Seaborn &amp; Matplotlib</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Statistical data visualization, publication-quality distribution charts, heatmaps, correlation matrices, and customized interactive visual dashboards.
+            </p>
+            <div class="skill-tags-row">
+                <span>Heatmaps</span>
+                <span>Histograms</span>
+                <span>Correlation Analysis</span>
+            </div>
+        </div>
+
+        <!-- 3. Frameworks & Backend -->
+        <div class="skill-detail-card glass-card" data-category="frameworks">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-cyan">
+                    <i class="fa-solid fa-server"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Flask Framework</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                RESTful microservices, Jinja2 templating, Blueprints, SQLite/SQLAlchemy integration, form validations, and asynchronous email/webhook pipelines.
+            </p>
+            <div class="skill-tags-row">
+                <span>Jinja2</span>
+                <span>REST Endpoints</span>
+                <span>Blueprints</span>
+                <span>Microservices</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="frameworks">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-purple">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>RESTful API Architecture</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                API design, JSON payload formatting, status code handling, CORS configuration, API authentication, and external third-party integrations (WhatsApp, SMTP).
+            </p>
+            <div class="skill-tags-row">
+                <span>JSON APIs</span>
+                <span>Webhooks</span>
+                <span>Authentication</span>
+            </div>
+        </div>
+
+        <!-- 4. Databases & SQL -->
+        <div class="skill-detail-card glass-card" data-category="databases">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-blue">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>SQL (Structured Query Language)</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Complex SQL queries, multi-table JOINs, subqueries, grouping, aggregation functions, indexing, and transactional integrity (ACID).
+            </p>
+            <div class="skill-tags-row">
+                <span>Complex Joins</span>
+                <span>Query Optimization</span>
+                <span>Indexing</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="databases">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-cyan">
+                    <i class="fa-solid fa-hard-drive"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>MySQL Database</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Relational schema architecture, foreign key constraints, table normalization (3NF), data migration scripts, and production database administration.
+            </p>
+            <div class="skill-tags-row">
+                <span>RDBMS</span>
+                <span>Schema Design</span>
+                <span>Normalization</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="databases">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-emerald">
+                    <i class="fa-solid fa-feather"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>SQLite</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Lightweight, serverless relational database engine. Embedded database management in Python/Flask applications with migration handlers.
+            </p>
+            <div class="skill-tags-row">
+                <span>Serverless</span>
+                <span>Embedded DB</span>
+                <span>Python SQLite3</span>
+            </div>
+        </div>
+
+        <!-- 5. Developer Tools & IDEs -->
+        <div class="skill-detail-card glass-card" data-category="tools">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-orange">
+                    <i class="fa-brands fa-git-alt"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Git &amp; GitHub</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Version control mastery, branching workflows, pull requests, issue tracking, remote repositories, and collaborative open-source practices.
+            </p>
+            <div class="skill-tags-row">
+                <span>Git CLI</span>
+                <span>GitHub Actions</span>
+                <span>Version Control</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="tools">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-blue">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Visual Studio Code (VS Code)</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Primary IDE environment with advanced debugging, linting, integrated terminal, Python virtual environments, and full-stack extensions.
+            </p>
+            <div class="skill-tags-row">
+                <span>Debugging</span>
+                <span>IntelliSense</span>
+                <span>Extensions</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="tools">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-orange">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>Jupyter Notebook</h4>
+                    <span class="skill-badge-level">Mastered</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Interactive computational environment for data exploration, Pandas analysis, machine learning experimentation, and visual reporting.
+            </p>
+            <div class="skill-tags-row">
+                <span>Data Science</span>
+                <span>Interactive Notebooks</span>
+                <span>Visual Analysis</span>
+            </div>
+        </div>
+
+        <div class="skill-detail-card glass-card" data-category="tools">
+            <div class="skill-card-top">
+                <div class="skill-badge-icon icon-purple">
+                    <i class="fa-solid fa-laptop-file"></i>
+                </div>
+                <div class="skill-meta">
+                    <h4>NetBeans IDE</h4>
+                    <span class="skill-badge-level">Proficient</span>
+                </div>
+            </div>
+            <p class="skill-card-desc">
+                Java and multi-language development, project architecture, syntax analysis, refactoring, and enterprise code management.
+            </p>
+            <div class="skill-tags-row">
+                <span>Java Dev</span>
+                <span>Refactoring</span>
+                <span>Project Management</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Profiles & Professional Platforms Grid -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge"><i class="fa-solid fa-globe"></i> Connected Everywhere</span>
+        <h2 class="section-main-title">Profiles &amp; Coding Platforms</h2>
+        <p class="section-desc">Connect with me across platforms, inspect my repositories, or review my technical profiles.</p>
+    </div>
+
+    <div class="platform-cards-grid">
+        <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" class="platform-card glass-card">
+            <div class="platform-icon-wrap icon-linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div class="platform-info">
+                <h4>LinkedIn Profile</h4>
+                <p>Professional Network &amp; Career Updates</p>
+                <span class="platform-action">Connect &rarr;</span>
+            </div>
+        </a>
+
+        <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer" class="platform-card glass-card">
+            <div class="platform-icon-wrap icon-github">
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="platform-info">
+                <h4>GitHub (@Atikbhas)</h4>
+                <p>Open-Source Projects &amp; Code History</p>
+                <span class="platform-action">Explore Code &rarr;</span>
+            </div>
+        </a>
+
+        <a href="mailto:{{ contact_email }}" class="platform-card glass-card">
+            <div class="platform-icon-wrap icon-email">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="platform-info">
+                <h4>Direct Email</h4>
+                <p>{{ contact_email }}</p>
+                <span class="platform-action">Send Message &rarr;</span>
+            </div>
+        </a>
+
+        <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="platform-card glass-card">
+            <div class="platform-icon-wrap icon-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="platform-info">
+                <h4>WhatsApp Direct</h4>
+                <p>Fast Discussion &amp; Instant Quotes</p>
+                <span class="platform-action">Chat on WhatsApp &rarr;</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="cta-banner">
+    <div class="cta-inner">
+        <div class="cta-badge">🚀 Let's Build Something Exceptional</div>
+        <h2>Have a project idea or need a dedicated developer?</h2>
+        <p>From full-stack web applications and UI redesigns to data science solutions, let's turn your vision into high-impact software.</p>
+        <div class="cta-buttons">
+            <a class="btn-glow btn-lg" href="{{ url_for('contact_page') }}">
+                <span>Start a Project Today</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a class="btn-outline" href="{{ url_for('projects_page') }}">
+                <span>View Featured Projects</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Projects Header -->
+<section class="page-head-card">
+    <div class="page-head-badge">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>Portfolio & Case Studies</span>
+    </div>
+    <h1 class="page-title">Featured Projects & Proven Client Solutions</h1>
+    <p class="page-subtitle">
+        Explore a curated selection of full-stack web applications, scalable APIs, and modern responsive digital experiences built for real-world reliability.
+    </p>
+</section>
+
+<!-- Filter Tabs -->
+<div class="projects-filter-bar">
+    <button class="filter-btn active" data-filter="all">All Real Projects (2)</button>
+    <button class="filter-btn" data-filter="fullstack">Full-Stack Web Apps</button>
+    <button class="filter-btn" data-filter="ai">AI / ML Apps</button>
+</div>
+
+<!-- Projects Grid -->
+<section class="projects-grid-section">
+    <div class="grid-cards-2" id="projectsContainer">
+        <!-- Project 1: Smart AI Attendance System -->
+        <article class="project-glass-card" data-category="fullstack ai">
+            <div class="project-preview-mockup">
+                <div class="mockup-bar">
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-url">smart-ai-attendance-6xkf.onrender.com</span>
+                </div>
+                <div class="mockup-content project-banner-ai">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-grid-ai">
+                        <div class="scanner-box">
+                            <div class="scan-corner tl"></div>
+                            <div class="scan-corner tr"></div>
+                            <div class="scan-corner bl"></div>
+                            <div class="scan-corner br"></div>
+                            <div class="scan-face-icon">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div class="scan-pill"><span class="pulse-dot"></span> 99.4% Match</div>
+                        </div>
+                        <div class="banner-details">
+                            <div class="banner-live-chip"><i class="fa-solid fa-brain"></i> AI Vision Active</div>
+                            <div class="banner-metric-row">
+                                <div class="b-stat">
+                                    <span class="b-val">140+</span>
+                                    <span class="b-lbl">Presences</span>
+                                </div>
+                                <div class="b-stat">
+                                    <span class="b-val">&lt;0.3s</span>
+                                    <span class="b-lbl">Detection</span>
+                                </div>
+                            </div>
+                            <div class="banner-mini-tags">
+                                <span>OpenCV</span>
+                                <span>Python</span>
+                                <span>Render</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-info">
+                <div class="project-tags">
+                    <span class="tag">AI / Machine Learning</span>
+                    <span class="tag">Python / Flask</span>
+                    <span class="tag">College Hackathon</span>
+                    <span class="tag">Live On Render</span>
+                </div>
+                <h3>Smart AI Attendance System</h3>
+                <p>
+                    An intelligent AI-driven attendance management platform built during a college hackathon. Uses smart vision &amp; facial recognition workflows to automate student attendance marking, reduce manual errors, and generate real-time presence analytics for educators.
+                </p>
+                <div class="project-highlights">
+                    <div><i class="fa-solid fa-check text-cyan"></i> AI-powered smart facial detection</div>
+                    <div><i class="fa-solid fa-check text-cyan"></i> Instant attendance tracking &amp; logging</div>
+                    <div><i class="fa-solid fa-check text-cyan"></i> Deployed and hosted live on Render</div>
+                </div>
+                <div class="project-links">
+                    <a href="https://smart-ai-attendance-6xkf.onrender.com" target="_blank" rel="noopener noreferrer" class="btn-sm-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open Live App</a>
+                    <a href="{{ url_for('contact_page') }}" class="btn-sm-secondary"><i class="fa-solid fa-comment-dots"></i> Inquire Similar App</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 2: J.P. Imitation Jewellery -->
+        <article class="project-glass-card" data-category="fullstack">
+            <div class="project-preview-mockup">
+                <div class="mockup-bar">
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-url">jp-imitation-jewellery.store</span>
+                </div>
+                <div class="mockup-content project-banner-store">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-grid-store">
+                        <div class="store-product-preview">
+                            <div class="prod-badge">Featured 💎</div>
+                            <div class="prod-icon-wrap">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div class="prod-meta">
+                                <span class="prod-title">Gold Bridal Set</span>
+                                <span class="prod-price">₹1,499</span>
+                            </div>
+                        </div>
+                        <div class="banner-details">
+                            <div class="banner-live-chip whatsapp-chip"><i class="fa-brands fa-whatsapp"></i> 1-Click Ordering</div>
+                            <div class="banner-metric-row">
+                                <div class="b-stat">
+                                    <span class="b-val">500+</span>
+                                    <span class="b-lbl">Products</span>
+                                </div>
+                                <div class="b-stat">
+                                    <span class="b-val">Instant</span>
+                                    <span class="b-lbl">Sync</span>
+                                </div>
+                            </div>
+                            <div class="banner-mini-tags">
+                                <span>Flask</span>
+                                <span>WhatsApp</span>
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-info">
+                <div class="project-tags">
+                    <span class="tag">Python / Flask</span>
+                    <span class="tag">Client Project</span>
+                    <span class="tag">WhatsApp API</span>
+                    <span class="tag">Responsive UI</span>
+                </div>
+                <h3>J.P. Imitation Jewellery Digital Storefront &amp; Admin</h3>
+                <p>
+                    A full-featured digital catalog and product management system custom engineered for J.P. Imitation Jewellery. Provides fast category browsing, high-resolution product showcases, direct 1-click WhatsApp order inquiries, and administrative product control.
+                </p>
+                <div class="project-highlights">
+                    <div><i class="fa-solid fa-check text-cyan"></i> Sub-second jewelry search &amp; filter</div>
+                    <div><i class="fa-solid fa-check text-cyan"></i> Seamless 1-click WhatsApp checkout</div>
+                    <div><i class="fa-solid fa-check text-cyan"></i> Lightweight inventory management</div>
+                </div>
+                <div class="project-links">
+                    <a href="{{ url_for('contact_page') }}" class="btn-sm-primary"><i class="fa-solid fa-comment-dots"></i> Inquire Similar Store</a>
+                    <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" class="btn-sm-secondary"><i class="fa-brands fa-linkedin"></i> Contact on LinkedIn</a>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Call to action -->
+<section class="cta-banner">
+    <div class="cta-inner">
+        <div class="cta-badge">🌟 Ready for your custom solution?</div>
+        <h2>Have a unique project idea you want to build?</h2>
+        <p>I can take your concept from initial wireframe to full deployment. Let's make it happen.</p>
+        <div class="cta-buttons">
+            <a class="btn-glow btn-lg" href="{{ url_for('contact_page') }}">
+                <span>Schedule a Consultation</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

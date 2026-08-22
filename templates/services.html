@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Services Header -->
+<section class="page-head-card">
+    <div class="page-head-badge">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Freelance Engineering Services</span>
+    </div>
+    <h1 class="page-title">Comprehensive Full-Stack Development Services</h1>
+    <p class="page-subtitle">
+        I provide end-to-end web development solutions tailored to help you launch faster, operate smoothly, and stand out in your market.
+    </p>
+</section>
+
+<!-- Detailed Services Grid -->
+<section class="section-block">
+    <div class="grid-cards-3">
+        <!-- Service 1: AI Engineering & AI/ML -->
+        <div class="glass-card service-detail-card">
+            <div class="service-icon-top icon-purple">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="service-badge">Cutting-Edge AI</div>
+            <h3>AI Engineering &amp; AI/ML Solutions</h3>
+            <p class="service-summary">Intelligent machine learning models, computer vision systems, and automated AI workflows tailored for your web app.</p>
+            
+            <div class="service-deliverables">
+                <h5>What's Included:</h5>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Computer Vision &amp; Facial Recognition</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Machine Learning models &amp; predictive algorithms</li>
+                    <li><i class="fa-solid fa-circle-check"></i> OpenAI / LLM API integration &amp; chatbots</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Automated data pipelines &amp; analytics</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Cloud deployment (Render/AWS/VPS)</li>
+                </ul>
+            </div>
+            
+            <div class="service-footer">
+                <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">
+                    <span>Inquire for AI / ML</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Service 2: Python / Flask Web Applications -->
+        <div class="glass-card service-detail-card">
+            <div class="service-icon-top icon-blue">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="service-badge">Most Popular</div>
+            <h3>Python &amp; Flask Web Applications</h3>
+            <p class="service-summary">Complete full-stack web applications built with Python/Flask backends and interactive, responsive frontends.</p>
+            
+            <div class="service-deliverables">
+                <h5>What's Included:</h5>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Custom Python / Flask architecture</li>
+                    <li><i class="fa-solid fa-circle-check"></i> User auth, session security &amp; roles</li>
+                    <li><i class="fa-solid fa-circle-check"></i> SQLite / PostgreSQL database modeling</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Real-time dashboards &amp; reporting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Production deployment &amp; setup</li>
+                </ul>
+            </div>
+            
+            <div class="service-footer">
+                <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">
+                    <span>Inquire for Python App</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Service 3: PHP Full-Stack Development -->
+        <div class="glass-card service-detail-card">
+            <div class="service-icon-top icon-cyan">
+                <i class="fa-brands fa-php"></i>
+            </div>
+            <div class="service-badge">Dynamic &amp; Fast</div>
+            <h3>PHP Full-Stack Development</h3>
+            <p class="service-summary">Fast, robust PHP web applications, custom MySQL databases, dynamic e-commerce stores, and admin dashboards.</p>
+            
+            <div class="service-deliverables">
+                <h5>What's Included:</h5>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Custom PHP architecture &amp; MVC</li>
+                    <li><i class="fa-solid fa-circle-check"></i> MySQL database schema design &amp; optimization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> E-Commerce catalogs &amp; WhatsApp ordering</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Admin control portals &amp; user management</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Fast loading &amp; shared/cPanel hosting setup</li>
+                </ul>
+            </div>
+            
+            <div class="service-footer">
+                <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">
+                    <span>Inquire for PHP App</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Service 4: Modern Responsive UI/UX -->
+        <div class="glass-card service-detail-card">
+            <div class="service-icon-top icon-purple">
+                <i class="fa-solid fa-palette"></i>
+            </div>
+            <div class="service-badge">High Conversion</div>
+            <h3>Modern UI/UX &amp; Redesigns</h3>
+            <p class="service-summary">Upgrade outdated websites with sleek glassmorphism, mobile-first responsive layouts, and intuitive conversion flows.</p>
+            
+            <div class="service-deliverables">
+                <h5>What's Included:</h5>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Mobile, tablet &amp; desktop optimization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Modern design system &amp; glassmorphism</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Blazing fast asset loading &amp; minification</li>
+                    <li><i class="fa-solid fa-circle-check"></i> SEO best practices &amp; meta tags</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Smooth micro-interactions &amp; animations</li>
+                </ul>
+            </div>
+            
+            <div class="service-footer">
+                <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">
+                    <span>Inquire for UI/UX</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Service 5: REST APIs & Integrations -->
+        <div class="glass-card service-detail-card">
+            <div class="service-icon-top icon-cyan">
+                <i class="fa-solid fa-gears"></i>
+            </div>
+            <div class="service-badge">Automation</div>
+            <h3>REST APIs &amp; Integrations</h3>
+            <p class="service-summary">Connect external web services, build high-speed REST endpoints, automated email triggers, and webhook bridges.</p>
+            
+            <div class="service-deliverables">
+                <h5>What's Included:</h5>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Clean JSON RESTful API endpoints</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Email (SMTP), WhatsApp &amp; payment hooks</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Webhooks &amp; 3rd party service synchronization</li>
+                    <li><i class="fa-solid fa-circle-check"></i> API documentation &amp; automated test scripts</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Error retry mechanism &amp; logging</li>
+                </ul>
+            </div>
+            
+            <div class="service-footer">
+                <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">
+                    <span>Inquire for API Work</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Service 6: Maintenance & Performance -->
+        <div class="glass-card service-detail-card">
+            <div class="service-icon-top icon-blue">
+                <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <div class="service-badge">Support</div>
+            <h3>Maintenance &amp; Optimization</h3>
+            <p class="service-summary">Keep existing web applications and databases running fast, secure, bug-free, and up-to-date.</p>
+            
+            <div class="service-deliverables">
+                <h5>What's Included:</h5>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i> Complex bug fixing &amp; troubleshooting</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Database indexing &amp; query speedup</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Security audits &amp; SSL/TLS configuration</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Framework &amp; package dependency updates</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Ongoing retainer &amp; contract support</li>
+                </ul>
+            </div>
+            
+            <div class="service-footer">
+                <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">
+                    <span>Inquire for Support</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Packages Overview -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge">Project Tiers</span>
+        <h2 class="section-main-title">Transparent Package Options</h2>
+        <p class="section-desc">Clear scopes to help you plan your budget and milestones.</p>
+    </div>
+
+    <div class="grid-cards-3 pricing-grid">
+        <div class="glass-card price-tier-card">
+            <div class="tier-head">
+                <div class="tier-name">Starter MVP / Landing</div>
+                <p class="tier-desc">Ideal for launching a new product idea, business catalog, or landing page fast.</p>
+            </div>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> Multi-section responsive site</li>
+                <li><i class="fa-solid fa-check"></i> Contact inquiry &amp; email delivery</li>
+                <li><i class="fa-solid fa-check"></i> WhatsApp direct chat button</li>
+                <li><i class="fa-solid fa-check"></i> 3 - 5 days turnaround</li>
+            </ul>
+            <a href="{{ url_for('contact_page') }}" class="btn-outline w-full text-center">Get Started</a>
+        </div>
+
+        <div class="glass-card price-tier-card featured-tier">
+            <div class="tier-ribbon">Recommended</div>
+            <div class="tier-head">
+                <div class="tier-name">Full-Stack / AI Web App</div>
+                <p class="tier-desc">Custom web application with database, user auth, dashboard, or AI integration.</p>
+            </div>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> Python/Flask or PHP Full-Stack</li>
+                <li><i class="fa-solid fa-check"></i> AI/ML Model or Facial Recognition integration</li>
+                <li><i class="fa-solid fa-check"></i> Secure Auth &amp; Database Architecture</li>
+                <li><i class="fa-solid fa-check"></i> Interactive UI / Analytics / Dashboard</li>
+                <li><i class="fa-solid fa-check"></i> 14 days post-launch support</li>
+            </ul>
+            <a href="{{ url_for('contact_page') }}" class="btn-glow w-full text-center">Start Project</a>
+        </div>
+
+        <div class="glass-card price-tier-card">
+            <div class="tier-head">
+                <div class="tier-name">Custom Enterprise / API</div>
+                <p class="tier-desc">Complex backend architectures, AI pipelines, multi-service integrations, or contract.</p>
+            </div>
+            <ul class="tier-features">
+                <li><i class="fa-solid fa-check"></i> Custom RESTful API &amp; Webhooks</li>
+                <li><i class="fa-solid fa-check"></i> Advanced AI/ML &amp; Computer Vision</li>
+                <li><i class="fa-solid fa-check"></i> Performance tuning &amp; security audit</li>
+                <li><i class="fa-solid fa-check"></i> Priority direct communication</li>
+            </ul>
+            <a href="{{ url_for('contact_page') }}" class="btn-outline w-full text-center">Discuss Enterprise</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to action -->
+<section class="cta-banner">
+    <div class="cta-inner">
+        <div class="cta-badge">💡 Custom requirements?</div>
+        <h2>Need a customized package or hourly contract?</h2>
+        <p>Contact me with your scope of work and I'll prepare a detailed timeline and quote.</p>
+        <div class="cta-buttons">
+            <a class="btn-glow btn-lg" href="{{ url_for('contact_page') }}">
+                <span>Request Custom Quote</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

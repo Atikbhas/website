@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-badge-pill">
+        <span class="live-dot"></span>
+        <span>🟢 Available for Freelance &amp; Engineering Contracts • Saurashtra University, Rajkot</span>
+    </div>
+
+    <div class="hero-grid">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Building High-Impact <span class="text-gradient">Web Applications</span> &amp; Scalable Software.
+            </h1>
+            <p class="hero-subtitle">
+                Hi, I'm <strong>Atik Bhas</strong> — a BCA Software Developer &amp; Data Science practitioner specializing in crafting robust backend architectures with Python/Flask &amp; PHP, AI/ML pipelines, modern responsive frontends, and optimized database solutions.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn-glow" href="{{ url_for('contact_page') }}">
+                    <span>Start a Project</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a class="btn-outline" href="{{ url_for('projects_page') }}">
+                    <i class="fa-solid fa-eye"></i>
+                    <span>Explore My Work</span>
+                </a>
+                <a class="btn-outline" href="{{ url_for('about_page') }}">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    <span>About Me</span>
+                </a>
+            </div>
+
+            <div class="hero-metrics">
+                <div class="metric-item">
+                    <div class="metric-number">BCA</div>
+                    <div class="metric-label">Saurashtra Univ</div>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="metric-item">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Code Quality</div>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="metric-item">
+                    <div class="metric-number">&lt; 24h</div>
+                    <div class="metric-label">Fast Response</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="code-card-glass">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-tab"><i class="fa-brands fa-python" style="color:#38bdf8;"></i> zenith_developer.py</div>
+                </div>
+                <pre class="code-body"><code><span class="code-keyword">class</span> <span class="code-class">FullStackDeveloper</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self):
+        self.name = <span class="code-string">"Atik Bhas"</span>
+        self.education = <span class="code-string">"BCA (Saurashtra University)"</span>
+        self.location = <span class="code-string">"Rajkot, Gujarat, India"</span>
+        self.mastered_stack = [
+            <span class="code-string">"HTML5/CSS3/Bootstrap"</span>, <span class="code-string">"JavaScript"</span>,
+            <span class="code-string">"Python &amp; Flask"</span>, <span class="code-string">"PHP &amp; MySQL"</span>,
+            <span class="code-string">"AI/ML, Pandas, NumPy, Seaborn"</span>,
+            <span class="code-string">"Git, VS Code, Jupyter, SQLite"</span>
+        ]
+        self.status = <span class="code-string">"⚡ Ready to build client ideas"</span>
+
+    <span class="code-keyword">def</span> <span class="code-func">deliver_solution</span>(self, client_goal):
+        solution = self.design_full_stack_architecture(client_goal)
+        solution.integrate_ai_and_data_models()
+        <span class="code-keyword">return</span> solution.launch_to_production()</code></pre>
+                
+                <div class="floating-tech-badge badge-top">
+                    <i class="fa-solid fa-brain" style="color:#a855f7;"></i>
+                    <span>AI &amp; Data Science</span>
+                </div>
+                <div class="floating-tech-badge badge-bottom">
+                    <i class="fa-brands fa-python" style="color:#38bdf8;"></i>
+                    <span>Python &amp; Flask Full-Stack</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Ticker -->
+<section class="tech-marquee-section">
+    <p class="ticker-heading">Technologies &amp; Frameworks I Master</p>
+    <div class="tech-tags-grid">
+        <div class="tech-pill"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML5</div>
+        <div class="tech-pill"><i class="fa-brands fa-css3-alt" style="color:#3b82f6;"></i> CSS3</div>
+        <div class="tech-pill"><i class="fa-brands fa-js" style="color:#eab308;"></i> JavaScript (ES6+)</div>
+        <div class="tech-pill"><i class="fa-brands fa-bootstrap" style="color:#818cf8;"></i> Bootstrap 5</div>
+        <div class="tech-pill"><i class="fa-brands fa-python" style="color:#38bdf8;"></i> Python 3</div>
+        <div class="tech-pill"><i class="fa-brands fa-php" style="color:#a855f7;"></i> PHP Full Stack</div>
+        <div class="tech-pill"><i class="fa-solid fa-brain" style="color:#a855f7;"></i> AI &amp; Machine Learning</div>
+        <div class="tech-pill"><i class="fa-solid fa-server" style="color:#38bdf8;"></i> Flask Framework</div>
+        <div class="tech-pill"><i class="fa-solid fa-table" style="color:#38bdf8;"></i> Pandas</div>
+        <div class="tech-pill"><i class="fa-solid fa-calculator" style="color:#3b82f6;"></i> NumPy</div>
+        <div class="tech-pill"><i class="fa-solid fa-chart-line" style="color:#10b981;"></i> Seaborn &amp; Matplotlib</div>
+        <div class="tech-pill"><i class="fa-solid fa-database" style="color:#3b82f6;"></i> SQL (MySQL &amp; SQLite)</div>
+        <div class="tech-pill"><i class="fa-brands fa-git-alt" style="color:#f97316;"></i> Git &amp; GitHub</div>
+        <div class="tech-pill"><i class="fa-solid fa-code" style="color:#38bdf8;"></i> VS Code</div>
+        <div class="tech-pill"><i class="fa-solid fa-book-open" style="color:#f97316;"></i> Jupyter Notebook</div>
+        <div class="tech-pill"><i class="fa-solid fa-laptop-file" style="color:#818cf8;"></i> NetBeans IDE</div>
+        <div class="tech-pill"><i class="fa-solid fa-network-wired" style="color:#2dd4bf;"></i> RESTful APIs</div>
+    </div>
+</section>
+
+<!-- Core Services Showcase -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge">What I Deliver</span>
+        <h2 class="section-main-title">Specialized Engineering Services</h2>
+        <p class="section-desc">Tailor-made web &amp; AI solutions designed to elevate your brand, streamline operations, and drive real business growth.</p>
+    </div>
+
+    <div class="grid-cards-2">
+        <!-- Service 1: AI Engineering & AI/ML -->
+        <div class="glass-card feature-card">
+            <div class="card-icon-wrap icon-purple">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3>AI Engineering &amp; AI/ML Solutions</h3>
+            <p>Intelligent AI systems, facial recognition models, data analytics pipelines, and smart automation integrated into web apps.</p>
+            <ul class="feature-bullets">
+                <li><i class="fa-solid fa-check"></i> Computer Vision &amp; Facial Recognition (like Smart Attendance)</li>
+                <li><i class="fa-solid fa-check"></i> Machine Learning models &amp; predictive analytics</li>
+                <li><i class="fa-solid fa-check"></i> AI API integration (OpenAI / LLMs / Custom Models)</li>
+            </ul>
+            <a href="{{ url_for('services_page') }}" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 2: Python / Flask Web Apps -->
+        <div class="glass-card feature-card">
+            <div class="card-icon-wrap icon-blue">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <h3>Python &amp; Flask Web Applications</h3>
+            <p>End-to-end full-stack web applications with authentication, custom dashboards, database backends, and robust logic.</p>
+            <ul class="feature-bullets">
+                <li><i class="fa-solid fa-check"></i> Python / Flask Architectures &amp; REST APIs</li>
+                <li><i class="fa-solid fa-check"></i> User Auth, Role Security &amp; Dashboards</li>
+                <li><i class="fa-solid fa-check"></i> Database Modeling &amp; Real-time Processing</li>
+            </ul>
+            <a href="{{ url_for('services_page') }}" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 3: PHP Full-Stack Development -->
+        <div class="glass-card feature-card">
+            <div class="card-icon-wrap icon-cyan">
+                <i class="fa-brands fa-php"></i>
+            </div>
+            <h3>PHP Full Stack Web Development</h3>
+            <p>Custom PHP and MySQL applications, dynamic e-commerce platforms, customer portals, and CMS solutions.</p>
+            <ul class="feature-bullets">
+                <li><i class="fa-solid fa-check"></i> Custom PHP Web Applications &amp; MVC</li>
+                <li><i class="fa-solid fa-check"></i> MySQL Database Design &amp; Optimization</li>
+                <li><i class="fa-solid fa-check"></i> E-Commerce Portals &amp; WhatsApp Integration</li>
+            </ul>
+            <a href="{{ url_for('services_page') }}" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 4: Modern UI/UX & API Integrations -->
+        <div class="glass-card feature-card">
+            <div class="card-icon-wrap icon-purple">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3>Modern Responsive UI/UX &amp; APIs</h3>
+            <p>Clean, mobile-first websites optimized for high conversion, sub-second speed, and 3rd party API integrations.</p>
+            <ul class="feature-bullets">
+                <li><i class="fa-solid fa-check"></i> Mobile-first Responsive UI &amp; Glassmorphism</li>
+                <li><i class="fa-solid fa-check"></i> REST API Development &amp; Webhook Bridges</li>
+                <li><i class="fa-solid fa-check"></i> SEO, Performance &amp; Cloud Deployment</li>
+            </ul>
+            <a href="{{ url_for('services_page') }}" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Preview -->
+<section class="section-block">
+    <div class="section-header-flex">
+        <div>
+            <span class="sub-badge">Portfolio Highlights</span>
+            <h2 class="section-main-title">Selected Work & Case Studies</h2>
+        </div>
+        <a href="{{ url_for('projects_page') }}" class="btn-outline">
+            <span>View All Projects</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <div class="grid-cards-2">
+        <!-- Project 1: Smart AI Attendance -->
+        <div class="project-glass-card">
+            <div class="project-preview-mockup">
+                <div class="mockup-bar">
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-url">smart-ai-attendance-6xkf.onrender.com</span>
+                </div>
+                <div class="mockup-content project-banner-ai">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-grid-ai">
+                        <div class="scanner-box">
+                            <div class="scan-corner tl"></div>
+                            <div class="scan-corner tr"></div>
+                            <div class="scan-corner bl"></div>
+                            <div class="scan-corner br"></div>
+                            <div class="scan-face-icon">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div class="scan-pill"><span class="pulse-dot"></span> 99.4% Match</div>
+                        </div>
+                        <div class="banner-details">
+                            <div class="banner-live-chip"><i class="fa-solid fa-brain"></i> AI Vision Active</div>
+                            <div class="banner-metric-row">
+                                <div class="b-stat">
+                                    <span class="b-val">140+</span>
+                                    <span class="b-lbl">Presences</span>
+                                </div>
+                                <div class="b-stat">
+                                    <span class="b-val">&lt;0.3s</span>
+                                    <span class="b-lbl">Detection</span>
+                                </div>
+                            </div>
+                            <div class="banner-mini-tags">
+                                <span>OpenCV</span>
+                                <span>Python</span>
+                                <span>Render</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-info">
+                <div class="project-tags">
+                    <span class="tag">AI / Machine Learning</span>
+                    <span class="tag">Python / Flask</span>
+                    <span class="tag">Hackathon Winner</span>
+                    <span class="tag">Live App</span>
+                </div>
+                <h3>Smart AI Attendance System</h3>
+                <p>An AI-powered attendance tracking web application developed during a college hackathon. Features smart recognition algorithms, automated attendance logging, real-time analytics, and an intuitive dashboard.</p>
+                <div class="project-links">
+                    <a href="https://smart-ai-attendance-6xkf.onrender.com" target="_blank" rel="noopener noreferrer" class="btn-sm-primary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+                    <a href="{{ url_for('contact_page') }}" class="btn-sm-secondary"><i class="fa-solid fa-comment-dots"></i> Inquire Similar AI App</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: J.P. Imitation Jewellery -->
+        <div class="project-glass-card">
+            <div class="project-preview-mockup">
+                <div class="mockup-bar">
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-circle"></span>
+                    <span class="mock-url">jp-imitation-jewellery.store</span>
+                </div>
+                <div class="mockup-content project-banner-store">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-grid-store">
+                        <div class="store-product-preview">
+                            <div class="prod-badge">Featured 💎</div>
+                            <div class="prod-icon-wrap">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div class="prod-meta">
+                                <span class="prod-title">Gold Bridal Set</span>
+                                <span class="prod-price">₹1,499</span>
+                            </div>
+                        </div>
+                        <div class="banner-details">
+                            <div class="banner-live-chip whatsapp-chip"><i class="fa-brands fa-whatsapp"></i> 1-Click Ordering</div>
+                            <div class="banner-metric-row">
+                                <div class="b-stat">
+                                    <span class="b-val">500+</span>
+                                    <span class="b-lbl">Products</span>
+                                </div>
+                                <div class="b-stat">
+                                    <span class="b-val">Instant</span>
+                                    <span class="b-lbl">Sync</span>
+                                </div>
+                            </div>
+                            <div class="banner-mini-tags">
+                                <span>Flask</span>
+                                <span>WhatsApp</span>
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-info">
+                <div class="project-tags">
+                    <span class="tag">Python / Flask</span>
+                    <span class="tag">Client Project</span>
+                    <span class="tag">WhatsApp API</span>
+                    <span class="tag">Modern UI/UX</span>
+                </div>
+                <h3>J.P. Imitation Jewellery Digital Storefront</h3>
+                <p>A tailored digital catalog and order management system built for J.P. Imitation Jewellery. Features fast jewelry product filtering, WhatsApp direct-order integration, inventory control, and mobile-first design.</p>
+                <div class="project-links">
+                    <a href="{{ url_for('contact_page') }}" class="btn-sm-primary"><i class="fa-solid fa-comment-dots"></i> Inquire Similar Store</a>
+                    <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" class="btn-sm-secondary"><i class="fa-brands fa-linkedin"></i> Contact on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Development Workflow -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge">How We Collaborate</span>
+        <h2 class="section-main-title">My 4-Step Development Process</h2>
+        <p class="section-desc">From initial concept to deployment, a transparent and smooth journey with zero guesswork.</p>
+    </div>
+
+    <div class="grid-cards-4 process-grid">
+        <div class="process-step-card">
+            <div class="step-badge">01</div>
+            <h4>Discovery & Blueprint</h4>
+            <p>We review your vision, functional requirements, timeline, and design aesthetic to construct a clear roadmap.</p>
+        </div>
+        <div class="process-step-card">
+            <div class="step-badge">02</div>
+            <h4>Architecture & UI</h4>
+            <p>I design intuitive UX wireframes, setup database schemas, and create the technical scaffolding for scale.</p>
+        </div>
+        <div class="process-step-card">
+            <div class="step-badge">03</div>
+            <h4>Rapid Development</h4>
+            <p>Active coding phase with regular progress updates and local demo previews for early feedback.</p>
+        </div>
+        <div class="process-step-card">
+            <div class="step-badge">04</div>
+            <h4>Launch & Support</h4>
+            <p>Rigorous testing, final deployment to your domain/cloud server, handover documentation, and post-launch support.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials & Trust -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge">Client Feedback</span>
+        <h2 class="section-main-title">What Clients Say</h2>
+        <p class="section-desc">Delivering excellence and dependable results for real businesses.</p>
+    </div>
+
+    <div class="grid-cards-3" style="justify-content: center;">
+        <div class="glass-card testimonial-card">
+            <div class="testi-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testi-quote">
+                "Atik ne hamare J.P. Imitation Jewellery ke liye ek bahut hi badhiya website banai. Product catalog, order management aur WhatsApp integration sab kuch perfect kaam kar raha hai. Bahut fast delivery aur clean design. Hum bahut khush hain!"
+            </p>
+            <div class="testi-author">
+                <div class="testi-avatar">JP</div>
+                <div>
+                    <div class="testi-name">J.P. Imitation Jewellery</div>
+                    <div class="testi-role">Owner, J.P. Imitation Jewellery</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call To Action Banner -->
+<section class="cta-banner">
+    <div class="cta-inner">
+        <div class="cta-badge">🚀 Have a project in mind?</div>
+        <h2>Let’s turn your vision into a world-class digital product</h2>
+        <p>I am available for freelance projects, MVP development, and contract engineering. Get in touch today for a free consultation.</p>
+        <div class="cta-buttons">
+            <a class="btn-glow btn-lg" href="{{ url_for('contact_page') }}">
+                <span>Let's Discuss Your Project</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a class="btn-linkedin-outline" href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>Message on LinkedIn</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

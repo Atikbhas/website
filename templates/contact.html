@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Contact Header -->
+<section class="page-head-card">
+    <div class="page-head-badge">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>Get in Touch</span>
+    </div>
+    <h1 class="page-title">Let's Discuss Your Next Project</h1>
+    <p class="page-subtitle">
+        Have an upcoming idea, need a custom web app built, or looking for a reliable freelance full-stack engineer? Fill out the project inquiry form below or connect directly on LinkedIn.
+    </p>
+</section>
+
+<!-- Contact Layout Grid -->
+<section class="section-block">
+    <div class="contact-layout-grid">
+        <!-- Direct Info & Trust Card -->
+        <div class="glass-card contact-info-panel">
+            <div class="card-icon-wrap icon-blue">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3>Direct Communication</h3>
+            <p>I value clear expectations, prompt replies, and honest timelines.</p>
+
+            <div class="direct-contact-items">
+                <a href="mailto:{{ contact_email }}" class="contact-channel-item">
+                    <div class="channel-icon mail-bg">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div>
+                        <div class="channel-title">Direct Email</div>
+                        <div class="channel-sub">{{ contact_email }}</div>
+                    </div>
+                </a>
+
+                <a href="tel:+918200611492" class="contact-channel-item">
+                    <div class="channel-icon phone-bg">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <div class="channel-title">Call / Mobile</div>
+                        <div class="channel-sub">{{ contact_phone }}</div>
+                    </div>
+                </a>
+
+                <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                    <div class="channel-icon whatsapp-bg">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <div class="channel-title">Chat on WhatsApp</div>
+                        <div class="channel-sub">Quick project discussions &amp; queries</div>
+                    </div>
+                </a>
+
+                <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                    <div class="channel-icon linkedin-bg">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div>
+                        <div class="channel-title">Connect on LinkedIn</div>
+                        <div class="channel-sub">Professional network &amp; messages</div>
+                    </div>
+                </a>
+
+                <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                    <div class="channel-icon location-bg">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div>
+                        <div class="channel-title">GitHub Profile</div>
+                        <div class="channel-sub">Inspect repositories &amp; open source code</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="trust-box mt-20">
+                <h5><i class="fa-solid fa-shield-check text-cyan"></i> The Zenith Guarantee</h5>
+                <ul class="trust-list">
+                    <li>&#10003; 100% Code Ownership delivered to you</li>
+                    <li>&#10003; Live demo progress before final handoff</li>
+                    <li>&#10003; Post-launch support &amp; bug fixing included</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Interactive Project Inquiry Form -->
+        <div class="glass-card contact-form-card">
+            <h3>Project Inquiry Form</h3>
+            <p class="form-subtext">Tell me a little about what you're building.</p>
+
+            <form action="{{ url_for('contact_submit') }}" method="post" class="inquiry-form" id="contactForm">
+                <!-- Name & Email Row -->
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="name"><i class="fa-solid fa-user"></i> Your Name <span class="required">*</span></label>
+                        <input id="name" name="name" type="text" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fa-solid fa-envelope"></i> Email Address <span class="required">*</span></label>
+                        <input id="email" name="email" type="email" placeholder="rahul@example.com" required autocomplete="email">
+                    </div>
+                </div>
+
+                <!-- Service Category Selection -->
+                <div class="form-group">
+                    <label for="service"><i class="fa-solid fa-layer-group"></i> Project Type / Service</label>
+                    <select id="service" name="service" class="custom-select">
+                        <option value="AI Engineering & AI/ML">AI Engineering &amp; AI/ML Solutions (Computer Vision, LLMs, Automation)</option>
+                        <option value="Python/Flask Full-Stack" selected>Python &amp; Flask Full-Stack Web Application</option>
+                        <option value="PHP Full-Stack Development">PHP Full-Stack Development (Custom Apps, MySQL, Portals)</option>
+                        <option value="UI/UX & Website Redesign">Modern Responsive UI/UX &amp; Website Redesign</option>
+                        <option value="REST APIs & Integrations">REST API Development &amp; 3rd-Party Integration</option>
+                        <option value="Bug Fixing & Optimization">Bug Fixing, Performance &amp; Security Optimization</option>
+                        <option value="Consultation / Other">Consultation / Custom Project</option>
+                    </select>
+                </div>
+
+                <!-- Budget Range Selector (Indian Rupees) -->
+                <div class="form-group">
+                    <label for="budget"><i class="fa-solid fa-wallet"></i> Estimated Budget</label>
+                    <select id="budget" name="budget" class="custom-select">
+                        <option value="Rs.5,000 - Rs.15,000">&#8377;5,000 - &#8377;15,000 (Starter / Landing Page)</option>
+                        <option value="Rs.15,000 - Rs.50,000" selected>&#8377;15,000 - &#8377;50,000 (Standard Web App)</option>
+                        <option value="Rs.50,000 - Rs.1,00,000">&#8377;50,000 - &#8377;1,00,000 (Full Custom Architecture)</option>
+                        <option value="Flexible / Hourly">Flexible / Hourly Contract</option>
+                    </select>
+                </div>
+
+                <!-- Message / Project Details -->
+                <div class="form-group">
+                    <label for="message"><i class="fa-solid fa-message"></i> Project Details &amp; Goals <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="5" placeholder="Briefly describe your project, desired features, deadlines, or any reference links..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-glow btn-lg w-full" id="submitBtn">
+                    <span>Send Project Inquiry</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Frequently Asked Questions Accordion -->
+<section class="section-block">
+    <div class="section-header text-center">
+        <span class="sub-badge">Common Questions</span>
+        <h2 class="section-main-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about working together.</p>
+    </div>
+
+    <div class="faq-accordion-wrap">
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                <span>What is your typical project turnaround time?</span>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Simple landing pages and UI redesigns typically take 3-7 business days. Full-stack custom web applications and SaaS MVPs usually take 2-4 weeks depending on scope, database complexity, and API requirements.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                <span>How do we communicate throughout the development cycle?</span>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </button>
+            <div class="faq-answer">
+                <p>I maintain regular communication via LinkedIn, Email, or Slack/Discord. I share live demo links throughout each phase so you can test features as they are built, eliminating surprises.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                <span>Do you provide post-launch support and warranty?</span>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Yes! Every project includes a complimentary post-launch support window (typically 14-30 days) to address any potential bug fixes, configuration adjustments, or deployment questions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+                <span>Will I own all code and assets after completion?</span>
+                <i class="fa-solid fa-chevron-down faq-chevron"></i>
+            </button>
+            <div class="faq-answer">
+                <p>100% yes. Upon project delivery and milestone completion, full source code ownership, repository access, and deployment credentials belong entirely to you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

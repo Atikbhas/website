@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Developing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="hero">
+        <h1>Zenith Developing </h1>
+        <p>Freelancer | Full Stack Developer</p>
+    </header>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, msg in messages %}
+                    <div class="alert {{ category }}">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <section>
+            <h2>About Me</h2>
+            <p>
+                I help clients build modern and reliable web applications.
+                I focus on clean design, performance, and practical solutions.
+            </p>
+        </section>
+
+        <section>
+            <h2>Services</h2>
+            <ul>
+                <li>Full stack web development</li>
+                <li>Business website development</li>
+                <li>Python/Flask web applications</li>
+                <li>Bug fixing and feature improvements</li>
+                <li>Website optimization and performance improvements</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <form action="{{ url_for('contact') }}" method="post" class="contact-form">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
