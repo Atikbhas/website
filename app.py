@@ -142,6 +142,11 @@ Sitemap: {SITE_URL}/sitemap.xml
     return Response(content, mimetype="text/plain")
 
 
+@app.get("/favicon.ico")
+def favicon_ico():
+    return send_file(os.path.join(app.root_path, "static", "favicon.ico"), mimetype="image/x-icon")
+
+
 @app.get("/sitemap.xml")
 def sitemap_xml():
     urls = [
