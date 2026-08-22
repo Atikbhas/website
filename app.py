@@ -271,13 +271,11 @@ def contact_submit():
 
     save_message(name, email, message, service, budget)
 
-    # Send email asynchronously in background thread so form submission is instant (< 0.1s)
-    import threading
-    threading.Thread(
-        target=send_email_notification,
-        args=(name, email, message, service, budget),
-        daemon=True
-    ).start()
+    # Execute email notification synchronously so Gunicorn WSGI workers never kill the process mid-send
+    try:
+        send_email_notification(name, email, message, service, budget)
+    except Exception as err:
+        print(f"Contact submission notification error: {err}")
 
     flash("Thank you! Your project inquiry has been received. I will review it and reply within 24 hours.", "success")
     return redirect(url_for("contact_page"))
