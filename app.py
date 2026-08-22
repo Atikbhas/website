@@ -64,11 +64,50 @@ def get_all_messages():
 
 
 def send_email_notification(name: str, email: str, message: str, service: str = "", budget: str = "") -> None:
+    resend_api_key = os.getenv("RESEND_API_KEY")
+    receiver = os.getenv("CONTACT_RECEIVER", CONTACT_EMAIL)
+
+    # 1. Try Resend HTTP API if key is set (guaranteed inbox delivery from cloud hosts)
+    if resend_api_key:
+        import json
+        import urllib.request
+        url = "https://api.resend.com/emails"
+        headers = {
+            "Authorization": f"Bearer {resend_api_key}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "from": "Zenith Developing <onboarding@resend.dev>",
+            "to": [receiver],
+            "reply_to": email,
+            "subject": f"⚡ New Client Inquiry: {name} ({service if service else 'General Project'})",
+            "html": f"""
+            <h2>🚀 New Client Inquiry Received!</h2>
+            <p><strong>Client Name:</strong> {name}</p>
+            <p><strong>Client Email:</strong> <a href="mailto:{email}">{email}</a></p>
+            <p><strong>Requested Service:</strong> {service if service else 'Not Specified'}</p>
+            <p><strong>Estimated Budget:</strong> {budget if budget else 'Not Specified'}</p>
+            <hr>
+            <h3>Message / Requirements:</h3>
+            <div style="background:#f1f5f9; padding:15px; border-radius:8px; font-family:monospace; color:#0f172a;">{message}</div>
+            <br>
+            <p><a href="mailto:{email}" style="background:#0284c7; color:#fff; padding:10px 18px; text-decoration:none; border-radius:6px; font-weight:600;">Reply Directly to {name}</a></p>
+            """
+        }
+        try:
+            req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers=headers)
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                if resp.getcode() in (200, 201):
+                    print(f"Resend HTTP API email successfully delivered to {receiver}")
+                    return
+        except Exception as resend_err:
+            print(f"Resend HTTP API error ({resend_err}), falling back to SMTP...")
+
+    # 2. SMTP Fallback
     mail_server = os.getenv("MAIL_SERVER", "smtp.gmail.com")
     mail_port = int(os.getenv("MAIL_PORT", "465"))
     mail_username = os.getenv("MAIL_USERNAME", "atikbhas92@gmail.com")
     mail_password = os.getenv("MAIL_PASSWORD", "mnuq ywux bpgv irde")
-    receiver = os.getenv("CONTACT_RECEIVER", CONTACT_EMAIL)
 
     if not (mail_server and mail_username and mail_password and receiver):
         print("Mail config missing, skipping email notification.")
