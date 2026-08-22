@@ -5,8 +5,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 from dotenv import load_dotenv
-from flask import Flask, flash, redirect, render_template, request, send_file, url_for
-
+from flask import Flask, Response, flash, redirect, render_template, request, send_file, url_for
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -21,6 +20,7 @@ CONTACT_EMAIL = "atikbhas92@gmail.com"
 CONTACT_PHONE = "+91 8200611492"
 WHATSAPP_URL = "https://wa.me/918200611492"
 GITHUB_URL = "https://github.com/Atikbhas"
+SITE_URL = "https://zenithdeveloping.tech"
 
 
 def init_db() -> None:
@@ -113,8 +113,37 @@ def inject_globals():
         "contact_email": CONTACT_EMAIL,
         "contact_phone": CONTACT_PHONE,
         "whatsapp_url": WHATSAPP_URL,
+        "site_url": SITE_URL,
     }
 
+@app.get("/robots.txt")
+def robots_txt():
+    content = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    return Response(content, mimetype="text/plain")
+
+
+@app.get("/sitemap.xml")
+def sitemap_xml():
+    urls = [
+        f"{SITE_URL}/",
+        f"{SITE_URL}/{SITE_SLUG}",
+        f"{SITE_URL}/{SITE_SLUG}/services",
+        f"{SITE_URL}/{SITE_SLUG}/projects",
+        f"{SITE_URL}/{SITE_SLUG}/about",
+        f"{SITE_URL}/{SITE_SLUG}/contact",
+    ]
+    xml_items = []
+    for u in urls:
+        xml_items.append(f"<url><loc>{u}</loc></url>")
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{''.join(xml_items)}
+</urlset>"""
+    return Response(xml, mimetype="application/xml")
 
 @app.get("/")
 def home():
