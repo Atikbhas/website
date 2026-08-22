@@ -57,6 +57,12 @@ def save_message(name: str, email: str, message: str, service: str = "", budget:
         )
 
 
+def get_all_messages():
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.row_factory = sqlite3.Row
+        return conn.execute("SELECT id, name, email, message, service, budget, created_at FROM contact_messages ORDER BY id DESC").fetchall()
+
+
 def send_email_notification(name: str, email: str, message: str, service: str = "", budget: str = "") -> None:
     mail_server = os.getenv("MAIL_SERVER", "smtp.gmail.com")
     mail_port = int(os.getenv("MAIL_PORT", "465"))
@@ -230,6 +236,13 @@ def contact_submit():
 
     flash("Thank you! Your project inquiry has been received. I will review it and reply within 24 hours.", "success")
     return redirect(url_for("contact_page"))
+
+
+@app.get(f"/{SITE_SLUG}/inquiries-dashboard-secret")
+@app.get("/inquiries")
+def inquiries_dashboard():
+    messages = get_all_messages()
+    return render_template("inquiries.html", messages=messages)
 
 
 if __name__ == "__main__":
