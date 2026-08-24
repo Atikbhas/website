@@ -128,13 +128,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Enhanced Email Link Handler (copies email to clipboard on click)
+    // Toast notification function
+    function showToast(message, iconClass = 'fa-solid fa-circle-check') {
+        let toast = document.querySelector('.zd-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'zd-toast';
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<i class="${iconClass}"></i> <span>${message}</span>`;
+        toast.classList.add('zd-toast-show');
+
+        if (window.toastTimeout) clearTimeout(window.toastTimeout);
+        window.toastTimeout = setTimeout(() => {
+            toast.classList.remove('zd-toast-show');
+        }, 4000);
+    }
+
+    // 8. Enhanced Email Link Handler (copies email + shows toast notification)
     const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
     emailLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            const email = link.getAttribute('href').replace('mailto:', '').split('?')[0];
-            if (navigator.clipboard && email) {
-                navigator.clipboard.writeText(email).catch(() => {});
+        link.addEventListener('click', (e) => {
+            const rawHref = link.getAttribute('href') || '';
+            const email = rawHref.replace('mailto:', '').split('?')[0].strip ? rawHref.replace('mailto:', '').split('?')[0].strip() : rawHref.replace('mailto:', '').split('?')[0].trim();
+            
+            if (email) {
+                // Copy email address to clipboard
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(email).then(() => {
+                        showToast(`Email copied: ${email}`, 'fa-solid fa-envelope-circle-check');
+                    }).catch(() => {
+                        showToast(`Contact email: ${email}`, 'fa-solid fa-envelope');
+                    });
+                } else {
+                    showToast(`Contact email: ${email}`, 'fa-solid fa-envelope');
+                }
             }
         });
     });

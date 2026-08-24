@@ -168,14 +168,14 @@ You can reply directly to this email to contact {name} at {email}.
     msg.set_content(details)
 
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=12) as server:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=3) as server:
             server.login(mail_username, mail_password)
             server.send_message(msg)
         print(f"Email notification successfully sent to {receiver}")
     except Exception as e:
         print(f"SSL port 465 failed ({e}), attempting TLS port 587 fallback...")
         try:
-            with smtplib.SMTP("smtp.gmail.com", 587, timeout=12) as server:
+            with smtplib.SMTP("smtp.gmail.com", 587, timeout=3) as server:
                 server.starttls()
                 server.login(mail_username, mail_password)
                 server.send_message(msg)
@@ -300,11 +300,12 @@ def contact_submit():
 
     save_message(name, email, message, service, budget)
 
-    # Execute email notification synchronously so Gunicorn WSGI workers never kill the process mid-send
+    # Execute email notification asynchronously in a background thread for instant response
     try:
-        send_email_notification(name, email, message, service, budget)
+        import threading
+        threading.Thread(target=send_email_notification, args=(name, email, message, service, budget), daemon=True).start()
     except Exception as err:
-        print(f"Contact submission notification error: {err}")
+        print(f"Async email notification trigger error: {err}")
 
     flash("Thank you! Your project inquiry has been received. I will review it and reply within 24 hours.", "success")
     return redirect(url_for("contact_page"))
