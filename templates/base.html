@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="description" content="Zenith Developing - Professional Full-Stack Web Developer. Specializing in Python, Flask, modern JavaScript, custom web apps, and scalable web solutions.">
     <meta name="keywords" content="Freelance Developer, Full Stack Developer, Python Developer, Flask Developer, Web Development, API Integration, Modern UI/UX">
     <meta name="author" content="Zenith Developing">
@@ -74,7 +74,7 @@
         <div class="wrapper nav-container">
             <a class="brand" href="{{ url_for('home_page') }}" aria-label="Zenith Developing Home">
                 <div class="brand-logo-wrap">
-                    <span class="brand-logo-text">ZD</span>
+                    <img src="{{ url_for('static', filename='logo-icon.png') }}" alt="Zenith Developing Logo" class="brand-logo-img">
                     <span class="brand-pulse"></span>
                 </div>
                 <div class="brand-info">
@@ -135,7 +135,7 @@
         <div class="mobile-drawer-header">
             <div class="brand">
                 <div class="brand-logo-wrap">
-                    <span class="brand-logo-text">ZD</span>
+                    <img src="{{ url_for('static', filename='logo-icon.png') }}" alt="Zenith Developing Logo" class="brand-logo-img">
                 </div>
                 <span class="brand-name">Zenith Developing</span>
             </div>
@@ -234,7 +234,7 @@
                 <div class="footer-brand">
                     <div class="brand">
                         <div class="brand-logo-wrap">
-                            <span class="brand-logo-text">ZD</span>
+                            <img src="{{ url_for('static', filename='logo-icon.png') }}" alt="Zenith Developing Logo" class="brand-logo-img">
                         </div>
                         <div>
                             <div class="brand-name">Zenith Developing</div>

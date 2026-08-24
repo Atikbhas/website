@@ -74,6 +74,9 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -83,9 +86,11 @@ body {
     font-size: 1rem;
     line-height: 1.65;
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     position: relative;
 }
 
@@ -182,9 +187,19 @@ img, svg {
     height: 44px;
     border-radius: 12px;
     background: var(--gradient-brand);
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 0 20px var(--cyan-glow);
+    overflow: hidden;
+}
+
+.brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    display: block;
 }
 
 .brand-logo-text {
@@ -2350,8 +2365,8 @@ input:focus, textarea:focus, select:focus {
 }
 
 @media (max-width: 768px) {
-    .nav-menu, .btn-cta {
-        display: none;
+    .nav-menu, .btn-cta, .btn-nav-icon, .whatsapp-nav-btn, .email-nav-btn, .btn-linkedin-icon {
+        display: none !important;
     }
 
     .mobile-toggle {
@@ -3168,15 +3183,29 @@ input:focus, textarea:focus, select:focus {
    ========================================================================== */
 
 @media (max-width: 768px) {
-    /* Global Container Spacing */
+    /* Global Container Spacing & Mobile Viewport Fit */
     .wrapper {
-        width: 92%;
-        padding: 0 8px;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
     }
+
+    /* Ambient Background Glow Mobile Containment */
+    .bg-glow {
+        max-width: 80vw;
+        max-height: 80vw;
+        opacity: 0.25;
+    }
+    .bg-glow-1 { left: -10vw; width: 70vw; height: 70vw; }
+    .bg-glow-2 { right: -10vw; width: 70vw; height: 70vw; }
+    .bg-glow-3 { left: 5vw; width: 70vw; height: 70vw; }
 
     /* Top Navbar Refinements */
     .topbar {
         padding: 10px 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     .brand-info {
@@ -3185,11 +3214,11 @@ input:focus, textarea:focus, select:focus {
     }
 
     .brand-name {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 
     .brand-tagline {
-        font-size: 0.68rem;
+        font-size: 0.65rem;
     }
 
     .brand-logo-wrap {
@@ -3202,7 +3231,7 @@ input:focus, textarea:focus, select:focus {
         gap: 8px;
     }
 
-    .btn-nav-icon, .theme-toggle-btn {
+    .theme-toggle-btn {
         width: 38px;
         height: 38px;
         font-size: 0.95rem;
@@ -3283,15 +3312,22 @@ input:focus, textarea:focus, select:focus {
         display: none;
     }
 
-    /* Visual Code Mockup Mobile Adjustments */
-    .hero-visual {
+    /* Visual Code Mockup Mobile Adjustments & Containment */
+    .hero-visual, .code-editor-mockup, .terminal-window {
         margin-top: 16px;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        box-sizing: border-box !important;
     }
 
-    .code-body {
+    .code-body, pre, code {
         padding: 14px;
         font-size: 0.74rem;
         line-height: 1.5;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
     }
 
     .floating-tech-badge {
