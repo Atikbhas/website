@@ -16,7 +16,7 @@ app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "change-this-secret")
 SITE_SLUG = "zenith-developing-full-stack-developer"
 SITE_TITLE = "Zenith Developing || Full Stack Developer"
 LINKEDIN_URL = "https://www.linkedin.com/in/atik-b-566254321/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BWMNJ1DSTSO%2BdNfSy3rP%2Fcw%3D%3D"
-CONTACT_EMAIL = "atikbhas92@gmail.com"
+CONTACT_EMAIL = "support@zenithdeveloping.tech"
 CONTACT_PHONE = "+91 8200611492"
 WHATSAPP_URL = "https://wa.me/918200611492"
 GITHUB_URL = "https://github.com/Atikbhas"
