@@ -23,7 +23,7 @@
     /* Typography Colors */
     --text-main: #f1f5f9;
     --text-muted: #94a3b8;
-    --text-subtle: #64748b;
+    --text-subtle: #cbd5e1;
     
     /* Gradients */
     --gradient-brand: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
@@ -3249,6 +3249,18 @@ input:focus, textarea:focus, select:focus {
     [data-theme="light"] .cta-banner {
         background: #ffffff !important;
         border-color: #e2e8f0 !important;
+    }
+
+    /* Mobile Tap Target Sizing for 100/100 SEO & Accessibility */
+    a, button, .social-icon, .tech-pill, .nav-link, .mobile-link, .tag, .filter-btn, .skill-tab-btn {
+        min-height: 44px;
+        box-sizing: border-box;
+    }
+
+    .footer-links-grid a {
+        display: inline-block;
+        padding: 6px 0;
+        min-height: 44px;
     }
 
     /* Global Container Spacing & Mobile Viewport Fit */
