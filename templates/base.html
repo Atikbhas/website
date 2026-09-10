@@ -7,21 +7,35 @@
     <meta name="keywords" content="Freelance Developer, Full Stack Developer, Python Developer, Flask Developer, Web Development, API Integration, Modern UI/UX">
     <meta name="author" content="Zenith Developing">
     
+    <meta name="theme-color" content="#0f172a">
+    
     <!-- Open Graph / Social Previews -->
-    <meta property="og:title" content="{{ site_title }}">
-    <meta property="og:description" content="Crafting modern, high-performance web applications and sleek digital experiences.">
+    <meta property="og:title" content="{% block meta_title %}{{ site_title }}{% endblock %}">
+    <meta property="og:description" content="{% block meta_description %}Crafting modern, high-performance web applications and sleek digital experiences.{% endblock %}">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site_url }}{{ request.path }}">
+    <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='logo.png') }}">
     
-    <title>{% block meta_title %}{{ site_title }}{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}Crafting modern, high-performance web applications and sleek digital experiences.{% endblock %}">
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}{{ site_title }}{% endblock %}">
+    <meta name="twitter:description" content="Zenith Developing - Full-Stack Web Development, Python/Flask Engineering, AI/ML Solutions by Founder Atik Bhas.">
+    <meta name="twitter:image" content="{{ site_url }}{{ url_for('static', filename='logo.png') }}">
     
-    <!-- Google Fonts -->
+    <title>{% block meta_title_main %}{{ site_title }}{% endblock %}</title>
+
+    <!-- Resource Preconnects & Performance Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome Icons (Non-blocking async load) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
