@@ -2483,17 +2483,33 @@ input:focus, textarea:focus, select:focus {
 
 /* Light Theme Component Tweaks */
 [data-theme="light"] .topbar {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.96) !important;
     border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 [data-theme="light"] .topbar.scrolled {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98) !important;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
 [data-theme="light"] .brand-name {
-    color: #0f172a;
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .brand-tagline {
+    color: #0284c7 !important;
+}
+
+[data-theme="light"] .mobile-toggle {
+    color: #0f172a !important;
+    background: rgba(15, 23, 42, 0.06) !important;
+    border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    background: rgba(15, 23, 42, 0.06) !important;
+    border-color: rgba(15, 23, 42, 0.12) !important;
+    color: #0f172a !important;
 }
 
 [data-theme="light"] .nav-menu {
@@ -2512,18 +2528,49 @@ input:focus, textarea:focus, select:focus {
 }
 
 [data-theme="light"] .mobile-drawer {
-    background: #ffffff;
-    border-left: 1px solid rgba(15, 23, 42, 0.1);
+    background: #ffffff !important;
+    border-left: 1px solid rgba(15, 23, 42, 0.1) !important;
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .mobile-drawer-header {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .mobile-close {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+[data-theme="light"] .mobile-theme-row {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .mobile-theme-title,
+[data-theme="light"] .theme-mode-text {
+    color: #0f172a !important;
 }
 
 [data-theme="light"] .mobile-link {
-    color: #334155;
+    color: #334155 !important;
 }
 
 [data-theme="light"] .mobile-link:hover,
 [data-theme="light"] .mobile-link.active {
-    color: #0284c7;
-    background: rgba(2, 132, 199, 0.08);
+    color: #0284c7 !important;
+    background: rgba(2, 132, 199, 0.08) !important;
+}
+
+[data-theme="light"] .mobile-drawer-footer .btn-outline {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+}
+
+[data-theme="light"] .mobile-drawer-footer .btn-outline span {
+    color: #0f172a !important;
 }
 
 [data-theme="light"] .glass-card,
@@ -3187,7 +3234,21 @@ input:focus, textarea:focus, select:focus {
     .glass-card, .code-card-glass, .topbar, .floating-tech-badge, .cta-banner, .mobile-drawer {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
+    }
+
+    [data-theme="dark"] .glass-card,
+    [data-theme="dark"] .topbar,
+    [data-theme="dark"] .mobile-drawer,
+    [data-theme="dark"] .cta-banner {
         background: rgba(15, 23, 42, 0.96) !important;
+    }
+
+    [data-theme="light"] .glass-card,
+    [data-theme="light"] .topbar,
+    [data-theme="light"] .mobile-drawer,
+    [data-theme="light"] .cta-banner {
+        background: #ffffff !important;
+        border-color: #e2e8f0 !important;
     }
 
     /* Global Container Spacing & Mobile Viewport Fit */
