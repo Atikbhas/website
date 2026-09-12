@@ -207,24 +207,8 @@ def add_performance_and_cache_headers(response):
     # Cache static assets for 1 year for fast repeat loads
     if request.path.startswith("/static/"):
         response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
-
-    # Gzip compress text/HTML/CSS/JS responses for ultra-fast mobile downloads
-    accept_encoding = request.headers.get("Accept-Encoding", "")
-    if (
-        response.status_code == 200
-        and "gzip" in accept_encoding.lower()
-        and not response.direct_passthrough
-        and response.mimetype in ["text/html", "text/css", "application/javascript", "application/json", "image/svg+xml"]
-    ):
-        data = response.get_data()
-        if len(data) > 500:
-            compressed_data = gzip.compress(data)
-            response.set_data(compressed_data)
-            response.headers["Content-Encoding"] = "gzip"
-            response.headers["Content-Length"] = len(compressed_data)
-            response.headers["Vary"] = "Accept-Encoding"
-
     return response
+
 
 @app.get("/robots.txt")
 def robots_txt():
@@ -346,4 +330,4 @@ def inquiries_dashboard():
 
 if __name__ == "__main__":
     init_db()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

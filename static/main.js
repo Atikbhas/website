@@ -150,17 +150,21 @@ document.addEventListener('DOMContentLoaded', () => {
     emailLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const rawHref = link.getAttribute('href') || '';
-            const email = rawHref.replace('mailto:', '').split('?')[0].strip ? rawHref.replace('mailto:', '').split('?')[0].strip() : rawHref.replace('mailto:', '').split('?')[0].trim();
+            const email = rawHref.replace('mailto:', '').split('?')[0].trim();
             
             if (email) {
-                // Copy email address to clipboard
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(email).then(() => {
-                        showToast(`Email copied: ${email}`, 'fa-solid fa-envelope-circle-check');
-                    }).catch(() => {
+                // Copy email address to clipboard if supported (HTTPS / modern WebKit)
+                try {
+                    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+                        navigator.clipboard.writeText(email).then(() => {
+                            showToast(`Email copied: ${email}`, 'fa-solid fa-envelope-circle-check');
+                        }).catch(() => {
+                            showToast(`Contact email: ${email}`, 'fa-solid fa-envelope');
+                        });
+                    } else {
                         showToast(`Contact email: ${email}`, 'fa-solid fa-envelope');
-                    });
-                } else {
+                    }
+                } catch (err) {
                     showToast(`Contact email: ${email}`, 'fa-solid fa-envelope');
                 }
             }
