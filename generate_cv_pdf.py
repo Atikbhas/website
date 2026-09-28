@@ -216,7 +216,25 @@ def create_resume_pdf(output_path: str):
     story.append(Paragraph("• Won College Hackathon distinction; deployed live on Render with automated analytics and instructor dashboards.", bullet_style))
     story.append(Spacer(1, 5))
 
-    # Project 2: J.P. Imitation Jewellery Storefront
+    # Project 2: Diabetes Detection & Risk Screening System
+    proj_diab_header = Table([
+        [
+            Paragraph("<b>Diabetes Detection &amp; Risk Screening System</b> | <i>Healthcare AI / ML Platform</i>", job_title_style),
+            Paragraph("<b>Live on Render</b>", job_meta_style)
+        ]
+    ], colWidths=[400, 140])
+    proj_diab_header.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('LEFTPADDING', (0, 0), (-1, -1), 0),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+    ]))
+    story.append(proj_diab_header)
+    story.append(Paragraph("• Engineered a Random Forest ML classification system trained on clinical metrics for instant diabetes risk evaluation.", bullet_style))
+    story.append(Paragraph("• Developed inline BMI calculators, server-side Matplotlib risk visualization charts, 7-day meal plans, and PDF report exports.", bullet_style))
+    story.append(Paragraph("• Deployed live web solution on Render with responsive UI and clinical guidance advisory.", bullet_style))
+    story.append(Spacer(1, 5))
+
+    # Project 3: J.P. Imitation Jewellery Storefront
     proj2_header = Table([
         [
             Paragraph("<b>J.P. Imitation Jewellery Digital Storefront</b> | <i>Full Stack E-Commerce &amp; Admin</i>", job_title_style),
@@ -234,7 +252,7 @@ def create_resume_pdf(output_path: str):
     story.append(Paragraph("• Optimized SQL queries and frontend assets for lightning-fast mobile catalog browsing.", bullet_style))
     story.append(Spacer(1, 5))
 
-    # Project 3: Zenith Developing / Freelance Web Engineering
+    # Project 4: Zenith Developing / Freelance Web Engineering
     proj3_header = Table([
         [
             Paragraph("<b>Zenith Developing</b> | <i>Freelance Full Stack Engineering &amp; Solutions</i>", job_title_style),
